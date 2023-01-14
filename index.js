@@ -1,61 +1,63 @@
-// use DOM queries to get access to the DOM elements that you need
-let digit = document.querySelectorAll(".digit");
-let operations = document.querySelectorAll(".operation");
-let equals = document.getElementById("btnEqual");
-let display = document.getElementById("display");
-let clear = document.getElementById('btnClear');
+// const localTrips = [
+//     {
 
-// link the displayDigit function to the click event of the digit buttons
-for (buttonD of digit) {
-    buttonD.addEventListener("click", displayDigit);
-}
-//link the operationClicked function to the click event of the operation buttons
-for (buttonO of operations) {
-    buttonO.addEventListener("click", operationClicked);
-}
-equals.addEventListener("click", equalClicked);
+//     }
+// ]
 
-// Define the displayDigit function to be added as an event listener to the buttons representing the
-// digits so that when the button is clicked the digit it represents would be concatenated
-// to the contents of the display label
-function displayDigit(event) {
-   display.innerHTML += (event.target.innerText);
-}
-// set the click event of the clear button to an anonymous function that clears the text of the display label
+// for (localTrip in localTrips) {
+//     updateLocalTrips(localTrip);
+// }
 
-clear.addEventListener("click", function(){
-    display.innerHTML="";
-});
-
-let firstValue, secondValue, operation;
-
-//Define the operationClicked function to handle the click event of the operation buttons
-//The function body should include the following steps:
-function operationClicked(event) {
-    //Convert the value in the display label into a number and store it in the variable firstValue
-    firstValue = Number(display.innerHTML);
-    //Store the text of the clicked button in the variable 'operation' for latter reference
-    operation = event.target.innerHTML;
-    //Clear the display label to allow the user to enter the second value
-    display.innerHTML = "";
+const updateLocalTrips = (localTripData) => {
+    const localTrips = document.getElementById("localTrips");
+    // select div, create card, add card as child node of div
 }
 
+let form = document.getElementById("rideForm");
 
-//Define the equalClicked function to handlet the click event of the equal button with the following steps
+const rideFormHandler = (event) => {
+    event.preventDefault()
 
-function equalClicked() {
-    //Convert the value in the display label to a number and store it in the variable secondValue
-    secondValue = Number(display.innerHTML);
-    // based on the value stored in the operation apply the corresponding operator on the first and second values
-    // and display the result in the display label.
-    if (operation == "+") {
-        final = (firstValue + secondValue);
-    } if (operation == "-") {
-        final = (firstValue - secondValue);
-    } if (operation == "*") {
-        final = (firstValue * secondValue);
-    } if (operation == "/") {
-        final = (firstValue / secondValue);
+    let form = document.getElementById("rideForm");
+    var formData = new FormData(form);
+    
+    // iterate through entries...
+    for (var pair of formData.entries()) {
+        console.log(pair[0] + ": " + pair[1]);
     }
-    display.innerHTML = final;
+    
+    // ...or output as an object
+    console.log(Object.fromEntries(formData));
+
+    updateLocalTrips(localTrips)
 }
+
+addEventListener('submit', rideFormHandler);
+
+
+
+// // Get the modal
+// var modal = document.getElementById("myModal");
+
+// // Get the button that opens the modal
+// var btn = document.getElementById("myBtn");
+
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
+
+// // When the user clicks the button, open the modal 
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// }
+
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function() {
+//   modal.style.display = "none";
+// }
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
