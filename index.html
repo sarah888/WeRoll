@@ -1,9 +1,8 @@
 <html>
 <head>
     <title>WeRoll</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font-family: Arial, Helvetica, sans-serif;background-color: #e1ecfd;}
 
 /* The Modal (background) */
 .modal {
@@ -69,13 +68,106 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 .modal-body {padding: 2px 16px;}
 
-</style>
 
+    * {box-sizing: border-box;}
+    
+    body { 
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .header {
+      overflow: hidden;
+      background-color: #4285f4;
+      padding: 20px 10px;
+    }
+    
+    .header a {
+      float: left;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px; 
+      line-height: 25px;
+      border-radius: 4px;
+    }
+    
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    
+    .header a:hover {
+      background-color: white;
+      color: dodgerblue;
+    }
+    
+    .header a.active {
+      background-color: dodgerblue;
+      color: white;
+    }
+    
+    .header-right {
+      float: right;
+    }
+    
+    @media screen and (max-width: 500px) {
+      .header a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+      
+      .header-right {
+        float: none;
+      }
+    }
+
+    .button {
+        background-color: dodgerblue; 
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+
+    .button1 {
+        background-color: white; 
+        color: black; 
+        border: 2px solid dodgerblue;
+    }
+
+    .button1:hover {
+        background-color: dodgerblue;
+        color: white;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="header">
+      <a href="#index" class="logo">We Roll</a>
+      <div class="header-right">
+        <a class="active" href="#index">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
+    
 </head>
-<body>
+
     <label id='display'></label>
     <br/>
     <!-- # of Passengers drop down  -->
+    <p style="padding-left:20px">Passengers
     <select name="passengers" id="passengers"> 
         <option value="1">1</option>
         <option value="2">2</option>
@@ -83,48 +175,50 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <option value="4">4</option>
         <option value="5">5</option>
         <option value="6">6</option>
-    </select>
-    <br/>
+    </select></p>
+    
     <!-- Time hour drop down -->
+    <p style="padding-left:20px">Time
     <select name="time" id="time"> 
         <option value="0">Now</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
+        <option value="1">1:00</option>
+        <option value="2">2:00</option>
+        <option value="3">3:00</option>
+        <option value="4">4:00</option>
+        <option value="5">5:00</option>
+        <option value="6">6:00</option>
+        <option value="7">7:00</option>
+        <option value="8">8:00</option>
+        <option value="9">9:00</option>
+        <option value="10">10:00</option>
+        <option value="11">11:00</option>
+        <option value="12">12:00</option>
     </select>
     <!-- am or pm drop down -->
     <select name="ampm" id="ampm"> 
         <option value="0">Now</option>
         <option value="AM">AM</option>
         <option value="PM">PM</option>
-    </select>
+    </select></p>
     <br/>
-    <h1>Local Trips</h1>    
-    <br/>
-    <button id='btn0' class="digit">0</button>
-    <button id='btnClear'>Clear</button>
-    <br/>
-    <button id='btnAdd' class="operation">+</button>
-    <button id='btn2Sub' class="operation">-</button>
-    <button id='btnMult' class="operation">*</button>
-    <button id='btnDiv' class="operation">/</button>
-    <button id='btnEqual'>=</button>
-    <br/>
+    <h2 style="padding-left:20px">Accessibility options</h2>
+    <form action="/action_page.php" style="padding-left:20px">
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> Wheelchair ramp and buckle</label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> </label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> I have a boat</label><br><br>
+    </form>
 
+    <!-- Trigger/Open The Modal -->
+    <div style="padding-left:20px">
+    <button id="myBtn" class = "button button1" >Book</button></div><br/>
     
-
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">Book</button>
-
+    <h1 style="padding-left:20px">Local Trips</h1>    
+    <br/><br/>
+    
+<!-- BOOK NOw POP UP--> 
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
@@ -136,10 +230,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </div>
     <div class="modal-body">
       <p>your destination, time, passengers</p>
-      <p>Some other text...</p>
     </div>
-  </div>
+    <form action="/action_page.php">
+        <input type="checkbox" id="carpool" name="carpool" value="carpool">
+        <label for="carpool"> Offer remaining seats for carpool</label><br>
+      </form>
+      <form action="payment.html" >							
+		<input type="submit" value="Continue to Payment"/>
+		<style type="text/css">
+			input{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+			input{background-color:dodgerblue;}
+			input{color: white;}
+		</style>
+	</form>
 
+  </div>
 </div>
 
 <script>
