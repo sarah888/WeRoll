@@ -1,91 +1,28 @@
 <html>
 <head>
     <title>WeRoll</title>
-    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-<style>
-body {
-    font-family: 'Inter';
-}
-</style>
-<style>
-body {font-family: Arial, Helvetica, sans-serif;background-color: #e1ecfd;}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #4285f4;
-  color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-
-    * {box-sizing: border-box;}
     
-    body { 
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+    <style type="text/css">
+			input{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                background-color:dodgerblue; 
+                color: white;
+                padding: 16px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                transition-duration: 0.4s;
+                cursor: pointer;
+                border-radius: 8px;}
+body {font-family: Arial, Helvetica, sans-serif;background-color: #e1ecfd;font-size: 18pt;margin:0}
     
     .header {
       overflow: hidden;
       background-color: #4285f4;
       padding: 20px 10px;
+      position:sticky;
+
     }
     
     .header a {
@@ -148,13 +85,24 @@ body {font-family: Arial, Helvetica, sans-serif;background-color: #e1ecfd;}
     .button1 {
         background-color: white; 
         color: black; 
-        border: 2px solid dodgerblue;
+        border: 2px solid #4285f4;
     }
 
     .button1:hover {
-        background-color: dodgerblue;
+        background-color: #4285f4;
         color: white;
     }
+
+    .footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #4285f4;
+        color: white;
+        text-align: center;
+        position: relative;
+        }
+    
     </style>
     <script src='index.js'></script>
     </head>
@@ -170,14 +118,14 @@ body {font-family: Arial, Helvetica, sans-serif;background-color: #e1ecfd;}
       </div>
     </div>
     
-
-
-    <label id='display'></label>
     <br/>
 
-    <form id="rideForm" action="" style="padding-left:20px">
+    <form id="rideForm" action="confirmation.html" style="padding-left:20px">
         <!-- # of Passengers drop down  -->
-        <p style="padding-left:20px">Passengers
+        <p>Starting Point: <input type="text" name="start">
+        </p>
+        <p>Destination: <input type="text" name="destination"></p>
+        <p>Passengers
         <select name="passengers" id="passengers"> 
             <option value="1">1</option>
             <option value="2">2</option>
@@ -188,90 +136,159 @@ body {font-family: Arial, Helvetica, sans-serif;background-color: #e1ecfd;}
         </select></p>
         
         <!-- Time hour drop down -->
-        <p style="padding-left:20px">Time
-        <select name="time" id="time"> 
-            <option value="0">Now</option>
-            <option value="1">1:00</option>
-            <option value="2">2:00</option>
-            <option value="3">3:00</option>
-            <option value="4">4:00</option>
-            <option value="5">5:00</option>
-            <option value="6">6:00</option>
-            <option value="7">7:00</option>
-            <option value="8">8:00</option>
-            <option value="9">9:00</option>
-            <option value="10">10:00</option>
-            <option value="11">11:00</option>
-            <option value="12">12:00</option>
+        <p >Time
+        <select name="hour" id="hour"> 
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10:</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
         </select>
+        :
+        <!-- Time minute drop down -->
+        <select name="minute" id="minute"> 
+            <option value="00">00</option>
+            <option value="05">05</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="35">35</option>
+            <option value="40">40</option>
+            <option value="45">45</option>
+            <option value="50">50</option>
+            <option value="55">55</option>
+        </select></p>
 
-        <!-- am or pm drop down -->
-        <select name="ampm" id="ampm"> 
-            <option value="0">Now</option>
-            <option value="AM">AM</option>
-            <option value="PM">PM</option>
-        </select></p><br/>
-
-        <!-- accessibility checkboxez -->
-        <h2 style="padding-left:20px">Accessibility options</h2>
+        <!-- accessibility checkboxes -->
         
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-            <label for="vehicle1"> Wheelchair ramp and buckle</label><br>
-            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-            <label for="vehicle2"> </label><br>
-            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-            <label for="vehicle3"> I have a boat</label><br><br>
-        
+        <h3 style="padding-left:20px">Accessibility options</h3>
+            <input type="checkbox" id="vehicle1" name="wheelchair">
+            <label for="vehicle1"> Wheelchair ramp</label><br>
+            <input type="checkbox" id="vehicle2" name="caregiver">
+            <label for="vehicle2"> Caregiver</label><br>
 
-        <!-- Trigger/Open The Modal -->
-        <div style="padding-left:20px">
-        <input type="submit" id="myBtn" class="button button1" >Book</button></div><br/>
+        <input type="submit" id="myBtn" class="button button1" >
+        
+</div><br/>
     </form>
     
-    <h1 style="padding-left:20px">Local Trips</h1>    
-    <br/><br/>
+        <h3>Local Trips</h3>
+        
+        </style>
+      </div> 
+    
 
     <div id="localTrips">
         <!-- cards with all local trips -->
-        
-    </div>
-    
-<!-- BOOK NOw POP UP--> 
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Confirmation</h2>
-    </div>
-    <div class="modal-body">
-      <p>your destination, time, passengers</p>
-    </div>
-    <form action="/action_page.php">
-        <input type="checkbox" id="carpool" name="carpool" value="carpool">
-        <label for="carpool"> Offer remaining seats for carpool</label><br>
-      </form>
-      <form action="payment.html" >							
-		<input type="submit" value="Continue to Payment"/>
-		<style type="text/css">
-			input{font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                background-color:dodgerblue; 
-                color: white;
-                padding: 16px 32px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                margin: 4px 2px;
-                transition-duration: 0.4s;
-                cursor: pointer;
-                border-radius: 8px;}
-		</style>
-	</form>
-
-  </div>
-</div>
+       
+          
+        <style>
+            
+            * {
+              box-sizing: border-box;
+            }
+            
+            body {
+              font-family: Arial, Helvetica, sans-serif;
+            }
+            
+            /* Float four columns side by side */
+            .column {
+              float: left;
+              width: 25%;
+              padding: 0 10px;
+            }
+            
+            /* Remove extra left and right margins, due to padding */
+            .row {margin: 0 -5px;}
+            
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            
+            /* Responsive columns */
+            @media screen and (max-width: 600px) {
+              .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+              }
+            }
+            
+            /* Style the counter cards */
+            .card {
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+              padding: 16px;
+              text-align: center;
+              background-color: #f1f1f1;
+            }
+            </style>
+            </head>
+            <body>
+            
+            <div class="row">
+              <div class="column">
+                <div class="card">
+                  <h3 id = "h3">Card 1</h3>
+                  <p id = "text">Some text</p>
+                </div>
+              </div>
+            
+              <div class="column">
+                <div class="card">
+                  <h3>Card 2</h3>
+                  <p>Some text</p>
+                  <p>Some text</p>
+                </div>
+              </div>
+              
+              <div class="column">
+                <div class="card">
+                  <h3>Card 3</h3>
+                  <p>Some text</p>
+                  <p>Some text</p>
+                </div>
+              </div>
+              
+              <div class="column">
+                <div class="card">
+                  <h3>Card 4</h3>
+                  <p>Some text</p>
+                  <p>Some text</p>
+                </div>
+              </div>
+            </div>
+    </div>   
+		
 </body>
+<footer>
+    <!-- footer -->
+    <div class="footer">
+        <p>WeRoll SheHacks7+</p>
+      </div>
+</footer>
 </html>
