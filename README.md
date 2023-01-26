@@ -1,3 +1,3 @@
 # WeRoll
-BY Claire Zhang, Laurie Liu, Sarah Huang
-SheHacks+ 7
+By   Sarah Huang Laurie Liu, Claire Zhang
+ @ SheHacks+ 7
